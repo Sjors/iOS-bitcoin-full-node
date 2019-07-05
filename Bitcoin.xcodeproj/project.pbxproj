@@ -15,6 +15,9 @@
 		A227FFD81FE011AB005BD8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A227FFD61FE011AB005BD8C2 /* LaunchScreen.storyboard */; };
 		A227FFE31FE011AB005BD8C2 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A227FFE21FE011AB005BD8C2 /* BitcoinTests.swift */; };
 		A227FFEE1FE011AC005BD8C2 /* BitcoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A227FFED1FE011AC005BD8C2 /* BitcoinUITests.swift */; };
+		A29BF5CC22CFC1F1003354EF /* libbitcoin_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A29BF5CB22CFC1F1003354EF /* libbitcoin_server.a */; };
+		A29BF5E222CFCD80003354EF /* Bitcoin.h in Headers */ = {isa = PBXBuildFile; fileRef = A29BF5E122CFCD80003354EF /* Bitcoin.h */; };
+		A29BF5E322CFD103003354EF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A29BF5DE22CFC990003354EF /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,10 @@
 		A227FFE91FE011AC005BD8C2 /* BitcoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitcoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A227FFED1FE011AC005BD8C2 /* BitcoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinUITests.swift; sourceTree = "<group>"; };
 		A227FFEF1FE011AC005BD8C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A29BF5CB22CFC1F1003354EF /* libbitcoin_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbitcoin_server.a; path = depends/bitcoin/src/libbitcoin_server.a; sourceTree = "<group>"; };
+		A29BF5DE22CFC990003354EF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A29BF5E122CFCD80003354EF /* Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitcoin.h; sourceTree = "<group>"; };
+		A29BF5EA22CFDC0F003354EF /* BitcoinCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BitcoinCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29BF5E322CFD103003354EF /* libc++.tbd in Frameworks */,
+				A29BF5CC22CFC1F1003354EF /* libbitcoin_server.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +88,12 @@
 		A227FFBE1FE011AB005BD8C2 = {
 			isa = PBXGroup;
 			children = (
+				A29BF5EA22CFDC0F003354EF /* BitcoinCore */,
 				A227FFC91FE011AB005BD8C2 /* Bitcoin */,
 				A227FFE11FE011AB005BD8C2 /* BitcoinTests */,
 				A227FFEC1FE011AC005BD8C2 /* BitcoinUITests */,
 				A227FFC81FE011AB005BD8C2 /* Products */,
+				A29BF5CA22CFC1F1003354EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +110,7 @@
 		A227FFC91FE011AB005BD8C2 /* Bitcoin */ = {
 			isa = PBXGroup;
 			children = (
+				A29BF5E122CFCD80003354EF /* Bitcoin.h */,
 				A227FFCA1FE011AB005BD8C2 /* AppDelegate.swift */,
 				A227FFCC1FE011AB005BD8C2 /* ViewController.swift */,
 				A227FFCE1FE011AB005BD8C2 /* Main.storyboard */,
@@ -128,13 +140,34 @@
 			path = BitcoinUITests;
 			sourceTree = "<group>";
 		};
+		A29BF5CA22CFC1F1003354EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A29BF5DE22CFC990003354EF /* libc++.tbd */,
+				A29BF5CB22CFC1F1003354EF /* libbitcoin_server.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A29BF5D022CFC662003354EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A29BF5E222CFCD80003354EF /* Bitcoin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		A227FFC61FE011AB005BD8C2 /* Bitcoin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A227FFF21FE011AC005BD8C2 /* Build configuration list for PBXNativeTarget "Bitcoin" */;
 			buildPhases = (
+				A29BF5D022CFC662003354EF /* Headers */,
 				A227FFC31FE011AB005BD8C2 /* Sources */,
 				A227FFC41FE011AB005BD8C2 /* Frameworks */,
 				A227FFC51FE011AB005BD8C2 /* Resources */,
@@ -372,7 +405,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -425,7 +460,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -437,14 +474,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 227MFQPYQ4;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				INFOPLIST_FILE = Bitcoin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BitcoinCore/bitcoin/src",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = nl.provoost.Bitcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/BitcoinCore";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
 			};
 			name = Debug;
@@ -453,14 +503,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 227MFQPYQ4;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				INFOPLIST_FILE = Bitcoin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BitcoinCore/bitcoin/src",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = nl.provoost.Bitcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/BitcoinCore";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = arm64;
 			};
 			name = Release;

@@ -8,8 +8,8 @@ You'll need to compile Bitcoin Core in the correct way. These instructions are
 a start. They depend on a pending pull request [bitcoin/bitcoin#12557](https://github.com/bitcoin/bitcoin/pull/12557).
 
 ```sh
-git clone  --single-branch --branch 2018/02/depends-openssl-aarch64-apple-darwin1 git@github.com:sjors/bitcoin.git depends/bitcoin
-cd depends/bitcoin
+git clone  --single-branch --branch 2018/02/depends-openssl-aarch64-apple-darwin1 git@github.com:sjors/bitcoin.git BitcoinCore/bitcoin
+cd BitcoinCore/bitcoin
 ./autogen.sh
 cd depends
 ln -s /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs SDKs
