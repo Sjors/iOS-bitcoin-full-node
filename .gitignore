@@ -1,1 +1,4 @@
 depends/bitcoin
+
+Bitcoin.xcodeproj/xcuserdata
+Bitcoin.xcodeproj/project.xcworkspace/xcuserdata
